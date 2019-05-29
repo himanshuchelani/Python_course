@@ -50,5 +50,6 @@ while True:
         break
     
     
- print(regressor_ols.params())
-
+data=regressor_ols.params.tolist()
+print("mother",data[0])
+print("father",data[1])
