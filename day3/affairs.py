@@ -11,7 +11,8 @@ labels=df.iloc[:,-1].values
 
 
 
-# applying onehotencoding
+# applying onehotencoding.
+
 from sklearn.preprocessing import OneHotEncoder
 onehotencoder=OneHotEncoder(categorical_features=[5,6])
 features = onehotencoder.fit_transform(features).toarray()

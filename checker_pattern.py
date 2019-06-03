@@ -1,0 +1,7 @@
+print(u'\u002A '*8)
+print(u' \u002A'*8)
+print(u'\u002A '*8)
+print(u' \u002A'*8)
+print(u'\u002A '*8)
+print(u' \u002A'*8)
+print(u'\u002A '*8)

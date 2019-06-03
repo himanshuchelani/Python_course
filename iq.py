@@ -38,7 +38,8 @@ pred=regressor.predict(features_train)
 iq=[90,70,150]
 x=np.array(iq,ndmin=2)
 regressor.predict(x)
-    
+import statsmodels.api as sm
+features=sm.add_constant(features)    
 features_opt=features[: ,[0,1,2,3]]
 regressor_ols=sm.OLS(endog=labels,exog=features_opt).fit()
 regressor_ols.summary()
@@ -54,5 +55,23 @@ regressor_ols.summary()
 features_opt=features[: ,[1]]
 regressor_ols=sm.OLS(endog=labels,exog=features_opt).fit()
 regressor_ols.summary()
-re
+
 print("brain size is only useful in iq")
+
+
+
+
+
+list1=[0,1,2,3]
+while True:
+    features_opt=features[:,list1]
+    regressor_ols=sm.OLS(endog=labels,exog=features_opt).fit()
+    p= regressor_ols.pvalues
+    print(p)
+    regressor_ols.summary()
+    ind=np.argmax(p)
+    if p[ind]>0.05:
+        del([list1[ind]])
+    else:
+        break
+    
